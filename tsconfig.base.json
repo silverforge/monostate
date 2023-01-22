@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@monostate/components": ["packages/components/src/index.ts"],
       "@monostate/data-access": ["packages/data-access/src/index.ts"],
       "@monostate/stylesheets/css": ["packages/stylesheets/css/src/index.ts"]
     }
