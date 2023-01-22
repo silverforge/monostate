@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "tailwind:generate": "npx tailwindcss -i ./packages/stylesheets/css/main.css -o ./packages/stylesheets/css/tailwind.css",
     "prisma:generate": "npx prisma generate --schema=packages/data-access/prisma/schema.prisma",
     "server:run": "npm run prisma:generate && nx serve server"
   },
@@ -11,9 +12,9 @@
     "@nrwl/cypress": "15.4.5",
     "@nrwl/eslint-plugin-nx": "15.4.5",
     "@nrwl/express": "15.5.3",
-    "@nrwl/jest": "15.5.3",
+    "@nrwl/jest": "^15.4.5",
     "@nrwl/js": "15.4.5",
-    "@nrwl/linter": "^15.5.3",
+    "@nrwl/linter": "^15.4.5",
     "@nrwl/node": "15.5.3",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/react": "15.4.5",

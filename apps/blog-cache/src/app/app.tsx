@@ -10,6 +10,10 @@ export function App() {
       <NxWelcome title="blog-cache" />
       <div />
 
+      <div className="p-2 w-10 h-10 bg-red-600">
+        <span className="text-white">Hello</span>
+      </div>
+
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
       {/* Feel free to move and update them to fit your needs */}
