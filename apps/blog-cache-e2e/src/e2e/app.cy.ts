@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('react', () => {
+describe('blog-cache', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('react', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome react');
+    getGreeting().contains('Welcome blog-cache');
   });
 });

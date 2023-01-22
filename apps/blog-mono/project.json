@@ -1,7 +1,7 @@
 {
-  "name": "react",
+  "name": "blog-mono",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/react/src",
+  "sourceRoot": "apps/blog-mono/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/react"
+        "outputPath": "dist/apps/blog-mono"
       },
       "configurations": {
         "development": {
@@ -24,32 +24,32 @@
       "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "react:build"
+        "buildTarget": "blog-mono:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "react:build:development",
+          "buildTarget": "blog-mono:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "react:build:production",
+          "buildTarget": "blog-mono:build:production",
           "hmr": false
         }
       }
     },
     "test": {
       "executor": "@nrwl/vite:test",
-      "outputs": ["coverage/apps/react"],
+      "outputs": ["coverage/apps/blog-mono"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/react"
+        "reportsDirectory": "../../coverage/apps/blog-mono"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/react/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/blog-mono/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
