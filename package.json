@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "prisma:generate": "npx prisma generate --schema=packages/data-access/prisma/schema.prisma"
+    "prisma:generate": "npx prisma generate --schema=packages/data-access/prisma/schema.prisma",
+    "server:run": "npm run prisma:generate && nx serve server"
   },
   "private": true,
   "devDependencies": {
