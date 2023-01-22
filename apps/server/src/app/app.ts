@@ -3,6 +3,8 @@ import * as express from 'express';
 import { postsRouter } from './routes/posts-router';
 import { usersRouter } from './routes/users-router';
 
+console.info(' ::: dirname ::: ', __dirname);
+
 export const app = express()
   .use('/assets', express.static(path.join(__dirname, 'assets')))
   .get('/api', (req, res) => {
