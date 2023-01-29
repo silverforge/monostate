@@ -1,15 +1,25 @@
-import { NavBar } from '@monostate/components';
-import styles from './app.module.css';
-import { Link } from 'react-router-dom';
+import { Menu, MenuItem, NavBar } from '@monostate/components';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from './store/store';
+import { setSelectedMenuItem } from './store/app-slice';
 
 export function App() {
+  const selectedMenuItem = useSelector((state: RootState) => state.app.selectedMenuItem);
+  const dispatch = useDispatch();
+
+  const menuItems: MenuItem[] = [
+    { id: 'home', path: '/', label: 'Home', onClick: () => handleOnLinkClick('/') },
+    { id: 'edit', path: '/edit', label: 'Add post', onClick: () => handleOnLinkClick('/edit') },
+  ];
+
+  const handleOnLinkClick = (path: string) => {
+    dispatch(setSelectedMenuItem(path));
+  }
+
   return (
     <section id="blog-mono-app">
       <NavBar title='BLOG-MONO'>
-        <div className={styles['menu']}>
-          <Link className={styles['menu__item']} to="/">Home</Link>
-          <Link className={styles['menu__item']} to="/">Edit</Link>
-        </div>
+        <Menu menuItems={menuItems} selectedMenuItem={selectedMenuItem} />
       </NavBar>
     </section>
   );
