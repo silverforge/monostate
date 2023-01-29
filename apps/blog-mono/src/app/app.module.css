@@ -1,0 +1,11 @@
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.menu__item {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--color-text);
+  cursor: pointer;
+}

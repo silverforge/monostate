@@ -8,8 +8,8 @@ export type NavbarProps = PropsWithChildren<{
 export const NavBar: FC<NavbarProps> = (props) => {
   return (
     <div className={styles['container']}>
-      <span>{props.title}</span>
-      {props.children}
+      <span className={styles['container__logo']}>{props.title}</span>
+      <div className={styles['container__children']}>{props.children}</div>
     </div>
   );
 }
