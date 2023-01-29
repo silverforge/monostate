@@ -8,4 +8,14 @@
   text-transform: uppercase;
   color: var(--color-text);
   cursor: pointer;
+  padding: .75rem 1rem;
+
+  border-radius: .25rem;
+  transition: all .3s .3s;
+}
+
+.menu__item:hover {
+  transition: all .3s;
+  background-color: var(--color-primary);
+  color: white;
 }
