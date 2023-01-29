@@ -1,18 +1,19 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { MainRoute } from "../routes/main-router";
 
 export type AppSliceState = {
-  selectedMenuItem: string;
+  selectedMenuItem: MainRoute;
 }
 
 const initialState: AppSliceState = {
-  selectedMenuItem: '/'
+  selectedMenuItem: MainRoute.home
 }
 
 const appSlice = createSlice({
   name: 'appSlice',
   initialState,
   reducers: {
-    setSelectedMenuItem: (state, action: PayloadAction<string>) => {
+    setSelectedMenuItem: (state, action: PayloadAction<MainRoute>) => {
       state.selectedMenuItem = action.payload;
     }
   }
