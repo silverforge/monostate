@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getPostListAsync } from "../../store/thunks/getPostListAsync";
+import { Post } from "../../../typedefs";
 
 export type PostListState = {
-  posts: unknown;
+  posts: Post[];
 }
 
 const initialState: PostListState = {
-  posts: undefined,
+  posts: [],
 }
 
 const postListSlice = createSlice({
@@ -15,7 +16,7 @@ const postListSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getPostListAsync.fulfilled, (state, action) => {
-      console.log('action payload', action.payload);
+      state.posts = [...action.payload];
     })
   }
 });

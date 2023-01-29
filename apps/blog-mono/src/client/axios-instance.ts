@@ -19,5 +19,4 @@ axiosInstance.interceptors.response.use(res => {
   console.error('[RES][ERR]', error);
 });
 
-
 export default axiosInstance;
