@@ -1,14 +1,7 @@
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { getPostListAsync } from "../../store/thunks/getPostListAsync";
+import { useGetPostListAsync } from "./hooks/useGetPostListAsync";
 
 export const PostList = () => {
-  const dispatch = useAppDispatch();
-  const posts = useAppSelector(state => state.postList.posts);
-
-  useEffect(() => {
-    dispatch(getPostListAsync());
-  }, [dispatch]);
+  const { posts } = useGetPostListAsync();
 
   return (
     <div>
