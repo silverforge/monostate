@@ -1,12 +1,15 @@
 import { useGetPostListAsync } from "./hooks/useGetPostListAsync";
+import { PostListItem } from "./post-list-item";
+
+import styles from './post-list.module.css';
 
 export const PostList = () => {
   const { posts } = useGetPostListAsync();
 
   return (
-    <div>
+    <div className={styles['post-list']}>
       {posts.map(p => (
-        <div key={p.id}>{p.title}</div>
+        <PostListItem key={p.id} post={p} />
       ))}
     </div>
   );
