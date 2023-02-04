@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { PostListPage } from "../pages/post-list-page";
+import { AddPostPage } from "../pages/add-post-page";
 
 export enum MainRoute {
   home = '/',
@@ -18,7 +19,7 @@ export const MainRouter = () => {
       <Route
         path={MainRoute.edit}
         element={
-          <div>EDIT</div>
+          <AddPostPage />
         }
       />
     </Routes>

@@ -1,0 +1,8 @@
+.container {
+  width: 100%;
+  height: calc(100vh - var(--height-navbar));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
