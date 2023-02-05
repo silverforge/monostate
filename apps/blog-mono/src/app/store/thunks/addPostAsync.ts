@@ -7,10 +7,15 @@ export type AddPostAsyncResponse = {
 
 export const addPostAsync = createAsyncThunk(
   'posts/addPostAsync',
-  async () => {
+  async (options: {
+    title: string,
+    text: string,
+  }) => {
+    const { title, text } = options;
+
     return (await axiosInstance.post<AddPostAsyncResponse>('posts', {
-      title: "title",
-      text: "text"
+      title,
+      text,
     })).data;
   }
 );

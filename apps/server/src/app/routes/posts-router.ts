@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { getPostList } from '@monostate/data-access';
+import { addPost, getPostList } from '@monostate/data-access';
 
 // baseUrl: /api/posts
 export const postsRouter = express.Router({})
@@ -8,6 +8,12 @@ export const postsRouter = express.Router({})
     res.status(200).json(list);
   })
   .post('/', async (req, res) => {
-    console.log(' ::: req.body ::: ', req.body);
-    res.status(200).json({ id: 1 });
+    const { title, text } = req.body;
+    const post = await addPost({
+      title,
+      text,
+      userId: '63adcf079a9c79dafea7dbfa',
+    });
+
+    res.status(200).json({ id: post.id });
   });
