@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { addPost, getPostList } from '@monostate/data-access';
+import { addPost, deletePost, getPostList } from '@monostate/data-access';
 
 // baseUrl: /api/posts
 export const postsRouter = express.Router({})
@@ -16,4 +16,9 @@ export const postsRouter = express.Router({})
     });
 
     res.status(200).json({ id: post.id });
+  })
+  .delete('/:postId', async (req, res) => {
+    const { postId } = req.params;
+    await deletePost(postId);
+    res.status(200).json({ id: postId });
   });

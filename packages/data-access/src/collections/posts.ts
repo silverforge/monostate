@@ -31,3 +31,11 @@ export const addPost = async ({ title, text, userId }: PostArgs) => {
     }
   });
 }
+
+export const deletePost = async (id: string) => {
+  return await prisma.post.delete({
+    where: {
+      id
+    }
+  });
+}
