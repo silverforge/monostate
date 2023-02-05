@@ -9,6 +9,29 @@
   line-height: 1.5rem;
 }
 
+.post-list-item__header-box {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.post-list-item__icon-box {
+  display: flex;
+  gap: 1rem;
+}
+
+.post-list-item__icon-box svg {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.post-list-item__icon-box svg:hover {
+  fill: var(--color-primary);
+}
+
 .post-list-item__title {
   font-size: 2rem;
   font-weight: 400;
