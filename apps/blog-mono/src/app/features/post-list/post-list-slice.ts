@@ -4,10 +4,12 @@ import { Post } from "../../../typedefs";
 
 export type PostListState = {
   posts: Post[];
+  isPostListLoading: boolean;
 }
 
 const initialState: PostListState = {
   posts: [],
+  isPostListLoading: false,
 }
 
 const postListSlice = createSlice({
@@ -15,9 +17,14 @@ const postListSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getPostListAsync.fulfilled, (state, action) => {
-      state.posts = [...action.payload];
-    })
+    builder
+      .addCase(getPostListAsync.pending, (state) => {
+        state.isPostListLoading = true;
+      })
+      .addCase(getPostListAsync.fulfilled, (state, action) => {
+        state.isPostListLoading = false;
+        state.posts = [...action.payload];
+      })
   }
 });
 
