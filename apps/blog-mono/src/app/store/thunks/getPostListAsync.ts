@@ -5,6 +5,6 @@ import { Post } from "../../../typedefs";
 export const getPostListAsync = createAsyncThunk(
   'posts/getPostListAsync',
   async () => {
-    return await (await axiosInstance.get<Post[]>('posts')).data;
+    return (await axiosInstance.get<Post[]>('posts')).data;
   }
 );

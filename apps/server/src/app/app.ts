@@ -11,6 +11,8 @@ export const app = express()
     origin: true
   }))
   .use('/assets', express.static(path.join(__dirname, 'assets')))
+  .use(express.json())
+  .use(express.urlencoded({ extended: true }))
   .get('/api', (req, res) => {
     res.send({ message: 'Welcome to server!' });
   })
