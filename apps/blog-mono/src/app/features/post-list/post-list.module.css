@@ -8,3 +8,18 @@
 
   align-items: center;
 }
+
+.delete-dialog__container {
+  width: 30rem;
+  height: 10rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.button-box {
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+}

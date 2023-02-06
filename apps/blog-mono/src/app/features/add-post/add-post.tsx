@@ -1,4 +1,4 @@
-import { Card } from "@monostate/components"
+import { Button, Card } from "@monostate/components"
 
 import styles from './add-post.module.css';
 import { useAppDispatch } from "../../store/hooks";
@@ -23,7 +23,7 @@ export const AddPost = () => {
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
         <span>text</span>
         <textarea value={text} onChange={(e) => setText(e.target.value)} />
-        <button type="button" onClick={handleOnSaveClick}>Save</button>
+        <Button onClick={handleOnSaveClick} text="Save" />
       </div>
     </Card>
   );

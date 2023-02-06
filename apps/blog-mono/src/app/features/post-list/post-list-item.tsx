@@ -1,11 +1,12 @@
 import { FC } from "react";
 import { Post } from "../../../typedefs";
-import { Card } from "@monostate/components";
+import { Card, Dialog } from "@monostate/components";
 import { DeleteIcon, EditIcon } from "@monostate/icons";
 
 import styles from './post-list-item.module.css';
 import { useAppDispatch } from "../../store/hooks";
-import { deletePostAsync } from "../../store/thunks/deletePostAsync";
+// import { deletePostAsync } from "../../store/thunks/deletePostAsync";
+import { postListActions } from "./post-list-slice";
 
 export type PostListItemProps = {
   post: Post;
@@ -15,7 +16,7 @@ export const PostListItem: FC<PostListItemProps> = ({ post }) => {
   const dispatch = useAppDispatch();
 
   const handleOnDeleteClick = (id: string) => {
-    dispatch(deletePostAsync({ id }));
+    dispatch(postListActions.openDeleteDialog(id));
   }
 
   return (

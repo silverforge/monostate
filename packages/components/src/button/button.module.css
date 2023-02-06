@@ -1,0 +1,14 @@
+.blog-button {
+  border: none;
+  border-radius: .5rem;
+  background-color: var(--color-primary);
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  padding: .5rem 1rem;
+  transition: all .3s;
+}
+
+.blog-button:hover {
+  box-shadow: 2px 2px 2px 0 #999999;
+}
