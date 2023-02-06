@@ -13,7 +13,9 @@ export const AddPost = () => {
 
   const handleOnSaveClick = async () => {
     const response = await (await dispatch(addPostAsync({ title, text }))).payload as AddPostAsyncResponse;
-    console.log(' ::: response payload ::: ', response);
+    console.log(' ::: save response payload ::: ', response);
+    setTitle("");
+    setText("");
   }
 
   return (

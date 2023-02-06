@@ -14,7 +14,8 @@ export const DeletePostDialog = () => {
 
   const onOkClick = async () => {
     setIsLoading(true);
-    await dispatch(deletePostAsync({ id: markedAsDeletedId }));
+    const response = await (await dispatch(deletePostAsync({ id: markedAsDeletedId }))).payload;
+    console.log(' ::: delete response payload :::', response);
     dispatch(postListActions.closeDeleteDialog());
     setIsLoading(false);
   }
