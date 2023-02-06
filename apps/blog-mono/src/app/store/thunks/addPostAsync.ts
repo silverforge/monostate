@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosInstance from "../../../client/axios-instance";
+import { axiosInstance } from "@monostate/client"
 
 export type AddPostAsyncResponse = {
   id: string;

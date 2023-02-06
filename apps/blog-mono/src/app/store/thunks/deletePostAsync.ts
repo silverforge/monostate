@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosInstance from "../../../client/axios-instance";
 import { getPostListAsync } from "./getPostListAsync";
+import { axiosInstance } from "@monostate/client";
 
 export type DeletePostAsyncResponse = {
   id: string;
