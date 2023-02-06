@@ -5,6 +5,7 @@ import { useAppSelector } from "../../store/hooks";
 import { useGetPostListAsync } from "./hooks/useGetPostListAsync";
 import { PostListItem } from "./post-list-item";
 import { DeletePostDialog } from "../dialog/delete-post-dialog";
+import { EditPostDialog } from '../dialog/edit-post-dialog';
 
 export const PostList = () => {
   const isPostListLoading = useAppSelector(state => state.postList.isPostListLoading);
@@ -21,6 +22,7 @@ export const PostList = () => {
       </div>
 
       <DeletePostDialog />
+      <EditPostDialog />
     </>
   );
 }

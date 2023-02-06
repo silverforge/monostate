@@ -1,14 +1,14 @@
 import styles from './delete-post-dialog.module.css';
 import { Button, Card, Dialog } from "@monostate/components";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { postListActions } from "../post-list/post-list-slice";
 import { deletePostAsync } from "../../store/thunks/deletePostAsync";
 import { useState } from 'react';
+import { dialogActions } from './dialog.slice';
 
 export const DeletePostDialog = () => {
   const dispatch = useAppDispatch();
-  const isDeleteDialogOpen = useAppSelector(state => state.postList.isDeleteDialogOpen);
-  const markedAsDeletedId = useAppSelector(state => state.postList.markedAsDeletedId);
+  const isDeleteDialogOpen = useAppSelector(state => state.dialog.isDeleteDialogOpen);
+  const markedAsDeletedId = useAppSelector(state => state.dialog.postId);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -16,12 +16,12 @@ export const DeletePostDialog = () => {
     setIsLoading(true);
     const response = await (await dispatch(deletePostAsync({ id: markedAsDeletedId }))).payload;
     console.log(' ::: delete response payload :::', response);
-    dispatch(postListActions.closeDeleteDialog());
+    dispatch(dialogActions.closeDeleteDialog());
     setIsLoading(false);
   }
 
   const onCancelClick = () => {
-    dispatch(postListActions.closeDeleteDialog());
+    dispatch(dialogActions.closeDeleteDialog());
   }
 
   return (

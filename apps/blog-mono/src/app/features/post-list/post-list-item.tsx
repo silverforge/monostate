@@ -5,7 +5,7 @@ import { DeleteIcon, EditIcon } from "@monostate/icons";
 
 import styles from './post-list-item.module.css';
 import { useAppDispatch } from "../../store/hooks";
-import { postListActions } from "./post-list-slice";
+import { dialogActions } from "../dialog/dialog.slice";
 
 export type PostListItemProps = {
   post: Post;
@@ -14,8 +14,12 @@ export type PostListItemProps = {
 export const PostListItem: FC<PostListItemProps> = ({ post }) => {
   const dispatch = useAppDispatch();
 
+  const handleOnEditClick = (id: string) => {
+    dispatch(dialogActions.openEditDialog(id));
+  }
+
   const handleOnDeleteClick = (id: string) => {
-    dispatch(postListActions.openDeleteDialog(id));
+    dispatch(dialogActions.openDeleteDialog(id));
   }
 
   return (
@@ -24,7 +28,7 @@ export const PostListItem: FC<PostListItemProps> = ({ post }) => {
         <div className={styles['post-list-item__header-box']}>
           <span className={styles['post-list-item__title']} >{post.title}</span>
           <div className={styles['post-list-item__icon-box']}>
-            <EditIcon />
+            <EditIcon onClick={() => handleOnEditClick(post.id)} />
             <DeleteIcon onClick={() => handleOnDeleteClick(post.id)} />
           </div>
         </div>
