@@ -19,5 +19,5 @@ const appSlice = createSlice({
   }
 });
 
-export const { setSelectedMenuItem } = appSlice.actions;
+export const appSliceActions = appSlice.actions;
 export const appSliceReducer = appSlice.reducer;

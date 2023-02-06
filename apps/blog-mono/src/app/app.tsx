@@ -1,5 +1,5 @@
 import { Menu, MenuItem, NavBar } from '@monostate/components';
-import { setSelectedMenuItem } from './store/app-slice';
+import { appSliceActions } from './store/app-slice';
 import { MainRoute, MainRouter } from './routes/main-router';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 
@@ -13,7 +13,7 @@ export function App() {
   ];
 
   const handleOnLinkClick = (path: MainRoute) => {
-    dispatch(setSelectedMenuItem(path));
+    dispatch(appSliceActions.setSelectedMenuItem(path));
   }
 
   return (
