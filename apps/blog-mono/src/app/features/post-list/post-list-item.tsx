@@ -1,11 +1,10 @@
 import { FC } from "react";
 import { Post } from "../../../typedefs";
-import { Card, Dialog } from "@monostate/components";
+import { Card } from "@monostate/components";
 import { DeleteIcon, EditIcon } from "@monostate/icons";
 
 import styles from './post-list-item.module.css';
 import { useAppDispatch } from "../../store/hooks";
-// import { deletePostAsync } from "../../store/thunks/deletePostAsync";
 import { postListActions } from "./post-list-slice";
 
 export type PostListItemProps = {
