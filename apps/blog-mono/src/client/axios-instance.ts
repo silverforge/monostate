@@ -6,14 +6,14 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(req => {
-  console.info(`[REQ] on ${req.url}`);
+  console.info(`[REQ] on ${req.method?.toUpperCase()} ${req.url}`);
   return req;
 }, error => {
   console.error('[REQ][ERR]', error);
 });
 
 axiosInstance.interceptors.response.use(res => {
-  console.info(`[RES] on ${res.config.url} with ${res.status} ${res.statusText}`);
+  console.info(`[RES] on ${res.config.method?.toUpperCase()} ${res.config.url} with ${res.status} ${res.statusText}`);
   return res;
 }, error => {
   console.error('[RES][ERR]', error);
