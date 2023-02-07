@@ -6,7 +6,7 @@ import { dialogReducer } from './slices/dialog.slice'
 export const store = configureStore({
   reducer: {
     app: appSliceReducer,
-    postList: postListReducer,
+    post: postListReducer,
     dialog: dialogReducer,
   },
 })

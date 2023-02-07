@@ -17,7 +17,7 @@ const initialState: PostListState = {
   isPostLoading: false,
 }
 
-const postListSlice = createSlice({
+const postSlice = createSlice({
   name: 'postListSlice',
   initialState,
   reducers: {},
@@ -40,5 +40,5 @@ const postListSlice = createSlice({
   }
 });
 
-export const postListReducer = postListSlice.reducer;
-export const postListActions = postListSlice.actions;
+export const postListReducer = postSlice.reducer;
+export const postListActions = postSlice.actions;

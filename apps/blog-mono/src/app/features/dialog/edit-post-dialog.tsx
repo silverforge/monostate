@@ -9,7 +9,7 @@ export const EditPostDialog = () => {
   const dispatch = useAppDispatch();
   const isEditDialogOpen = useAppSelector(state => state.dialog.isEditDialogOpen);
   const markedAsEditId = useAppSelector(state => state.dialog.postId);
-  const post = useAppSelector(state => state.postList.selectedPost);
+  const post = useAppSelector(state => state.post.selectedPost);
 
   const [title, setTitle] = useState<string>("");
   const [text, setText] = useState<string>("");

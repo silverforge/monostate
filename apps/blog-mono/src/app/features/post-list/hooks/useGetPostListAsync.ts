@@ -4,7 +4,7 @@ import { getPostListAsync } from "../../../store/thunks/getPostListAsync";
 
 export const useGetPostListAsync = () => {
   const dispatch = useAppDispatch();
-  const posts = useAppSelector(state => state.postList.posts);
+  const posts = useAppSelector(state => state.post.posts);
 
   useEffect(() => {
     dispatch(getPostListAsync());
