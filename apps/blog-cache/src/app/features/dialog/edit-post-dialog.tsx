@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './edit-post-dialog.module.css';
 import { Button, Card, Dialog, InputText, InputTextArea } from "@monostate/components";
 import { useDialogStore } from '../../stores/useDialogStore';
@@ -11,12 +11,14 @@ export const EditPostDialog = () => {
   const [title, setTitle] = useState<string>("");
   const [text, setText] = useState<string>("");
 
-  const { data: postResult } = usePostQuery(postId, (post) => {
-    if (post) {
-      setTitle(post.title);
-      setText(post.text);
+  const { data: postResult } = usePostQuery(postId);
+
+  useEffect(() => {
+    if (postResult) {
+      setTitle(postResult.text);
+      setText(postResult.text);
     }
-  });
+  }, [postResult]);
 
   const { mutateAsync: updatePostAsync, isLoading: isSaving } = useUpdatePostMutation();
 

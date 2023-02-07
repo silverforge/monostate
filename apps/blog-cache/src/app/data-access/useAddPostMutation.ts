@@ -12,7 +12,7 @@ export const useAddPostMutation = () => {
     mutationFn: async (variables: { title: string, text: string }) => await addPost(variables.title, variables.text),
     mutationKey: [ADD_POST_ID],
     onSettled: () => {
-      queryClient.invalidateQueries([GET_POST_LIST_ID]);
+      queryClient.invalidateQueries({ queryKey: [GET_POST_LIST_ID] });
       queryClient.invalidateQueries([GET_POST_ID]);
     }
   });
