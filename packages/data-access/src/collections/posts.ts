@@ -39,3 +39,15 @@ export const deletePost = async (id: string) => {
     }
   });
 }
+
+export const updatePost = async (id: string, title: string, text: string) => {
+  return await prisma.post.update({
+    data: {
+      title,
+      text,
+    },
+    where: {
+      id
+    }
+  });
+}

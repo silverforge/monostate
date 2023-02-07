@@ -4,6 +4,8 @@ import styles from './edit-post-dialog.module.css';
 import { Button, Card, Dialog, InputText, InputTextArea } from "@monostate/components";
 import { dialogActions } from '../../store/slices/dialog.slice';
 import { getPostAsync } from '../../store/thunks/getPostAsync';
+import { postActions } from '../../store/slices/post-slice';
+import { updatePostAsync } from '../../store/thunks/updatePostAsync';
 
 export const EditPostDialog = () => {
   const dispatch = useAppDispatch();
@@ -14,7 +16,7 @@ export const EditPostDialog = () => {
   const [title, setTitle] = useState<string>("");
   const [text, setText] = useState<string>("");
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isSaving, setIsSaving] = useState<boolean>(false);
 
   useEffect(() => {
     if (markedAsEditId) {
@@ -29,17 +31,24 @@ export const EditPostDialog = () => {
     }
   }, [post]);
 
-  const onOkClick = () => {
-    setIsLoading(true);
-    console.log(' ::: markedAsEditId ::: ', markedAsEditId);
-    // const response = await (await dispatch(deletePostAsync({ id: markedAsDeletedId }))).payload;
-    // console.log(' ::: delete response payload :::', response);
+  const cleanUpAndCloseDialog = () => {
+    setTitle("");
+    setText("");
+    dispatch(postActions.clearSelectedPost());
     dispatch(dialogActions.closeEditDialog());
-    setIsLoading(false);
+  }
+
+  const onOkClick = async () => {
+    setIsSaving(true);
+    console.log(' ::: markedAsEditId ::: ', markedAsEditId);
+    const response = (await dispatch(await updatePostAsync({ id: post?.id, title, text }))).payload;
+    console.log(' ::: update response payload :::', response);
+    setIsSaving(false);
+    cleanUpAndCloseDialog();
   }
 
   const onCancelClick = () => {
-    dispatch(dialogActions.closeEditDialog());
+    cleanUpAndCloseDialog();
   }
 
   return (
@@ -48,7 +57,7 @@ export const EditPostDialog = () => {
         <div className={styles['edit-dialog__container']}>
           <InputText text="title" value={title} onValueChange={setTitle} />
           <InputTextArea text="text" value={text} onValueChange={setText} />
-          {isLoading && <div>Saving post...</div>}
+          {isSaving && <div>Saving post...</div>}
           <div className={styles['button-box']}>
             <Button onClick={onOkClick} text="Ok" />
             <Button onClick={onCancelClick} text="Cancel" />

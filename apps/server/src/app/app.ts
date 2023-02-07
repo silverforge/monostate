@@ -1,8 +1,8 @@
 import * as path from 'path';
 import * as express from 'express';
+import * as cors from 'cors';
 import { postsRouter } from './routes/posts-router';
 import { usersRouter } from './routes/users-router';
-import * as cors from 'cors';
 
 console.info(' ::: dirname ::: ', __dirname);
 

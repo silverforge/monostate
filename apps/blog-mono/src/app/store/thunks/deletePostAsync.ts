@@ -10,7 +10,7 @@ export const deletePostAsync = createAsyncThunk(
   'posts/addPostAsync',
   async (options: { id: string }, { dispatch }) => {
     const { id } = options;
-    const response = await (await axiosInstance.delete<DeletePostAsyncResponse>(`posts/${id}`)).data;
+    const response = (await axiosInstance.delete<DeletePostAsyncResponse>(`posts/${id}`)).data;
     dispatch(getPostListAsync());
     return response;
   }

@@ -20,7 +20,11 @@ const initialState: PostListState = {
 const postSlice = createSlice({
   name: 'postListSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    clearSelectedPost: (state) => {
+      state.selectedPost = undefined;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPostListAsync.pending, (state) => {
@@ -40,5 +44,5 @@ const postSlice = createSlice({
   }
 });
 
-export const postListReducer = postSlice.reducer;
-export const postListActions = postSlice.actions;
+export const postReducer = postSlice.reducer;
+export const postActions = postSlice.actions;
