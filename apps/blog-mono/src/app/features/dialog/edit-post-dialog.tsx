@@ -56,7 +56,7 @@ export const EditPostDialog = () => {
       <Card>
         <div className={styles['edit-dialog__container']}>
           <InputText text="title" value={title} onValueChange={setTitle} />
-          <InputTextArea text="text" value={text} onValueChange={setText} />
+          <InputTextArea text="text" value={text} onValueChange={setText} fixed />
           {isSaving && <div>Saving post...</div>}
           <div className={styles['button-box']}>
             <Button onClick={onOkClick} text="Ok" />
