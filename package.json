@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "prisma:generate": "npx prisma generate --schema=packages/data-access/prisma/schema.prisma",
-    "server:run": "npm run prisma:generate && nx serve server"
+    "server:run": "npm run prisma:generate && nx serve server",
+    "blog-mono:run": "nx serve blog-mono --port 4200",
+    "blog-cache:run": "nx serve blog-cache --port 4400"
   },
   "private": true,
   "devDependencies": {
