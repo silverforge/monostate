@@ -3,7 +3,7 @@ import { Button, Card, Dialog } from "@monostate/components";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { deletePostAsync } from "../../store/thunks/deletePostAsync";
 import { useState } from 'react';
-import { dialogActions } from './dialog.slice';
+import { dialogActions } from '../../store/slices/dialog.slice';
 
 export const DeletePostDialog = () => {
   const dispatch = useAppDispatch();

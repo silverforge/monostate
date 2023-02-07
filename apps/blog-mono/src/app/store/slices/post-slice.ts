@@ -1,15 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getPostListAsync } from "../../store/thunks/getPostListAsync";
-import { Post } from "../../../typedefs";
+import { getPostListAsync } from "../thunks/getPostListAsync";
+import { Post } from "@monostate/client";
+import { getPostAsync } from "../thunks/getPostAsync";
 
 export type PostListState = {
   posts: Post[];
   isPostListLoading: boolean;
+  selectedPost: Post | undefined,
+  isPostLoading: boolean;
 }
 
 const initialState: PostListState = {
   posts: [],
   isPostListLoading: false,
+  selectedPost: undefined,
+  isPostLoading: false,
 }
 
 const postListSlice = createSlice({
@@ -22,8 +27,15 @@ const postListSlice = createSlice({
         state.isPostListLoading = true;
       })
       .addCase(getPostListAsync.fulfilled, (state, action) => {
-        state.isPostListLoading = false;
         state.posts = [...action.payload];
+        state.isPostListLoading = false;
+      })
+      .addCase(getPostAsync.pending, (state) => {
+        state.isPostLoading = true;
+      })
+      .addCase(getPostAsync.fulfilled, (state, action) => {
+        state.selectedPost = action.payload;
+        state.isPostLoading = false;
       })
   }
 });

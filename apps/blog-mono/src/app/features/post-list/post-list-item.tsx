@@ -5,7 +5,7 @@ import { DeleteIcon, EditIcon } from "@monostate/icons";
 
 import styles from './post-list-item.module.css';
 import { useAppDispatch } from "../../store/hooks";
-import { dialogActions } from "../dialog/dialog.slice";
+import { dialogActions } from "../../store/slices/dialog.slice";
 
 export type PostListItemProps = {
   post: Post;

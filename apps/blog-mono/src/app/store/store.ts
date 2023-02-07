@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { appSliceReducer } from './app-slice'
-import { postListReducer } from '../features/post-list/post-list-slice'
-import { dialogReducer } from '../features/dialog/dialog.slice'
+import { postListReducer } from './slices/post-slice'
+import { dialogReducer } from './slices/dialog.slice'
 
 export const store = configureStore({
   reducer: {
