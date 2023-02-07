@@ -1,56 +1,22 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
-
-import { Route, Routes, Link } from 'react-router-dom';
+import { Menu, MenuItem, NavBar } from '@monostate/components';
+import { MainRoute, MainRouter } from './routes/main-router';
+import { useAppStore } from './stores/useAppStore';
 
 export function App() {
+  const [selectedMenuItem, setSelectedMenuItem] = useAppStore(state => [state.selectedMenuItem, state.setSelectedMenuItem]);
+
+  const menuItems: MenuItem[] = [
+    { id: 'home', path: MainRoute.home, label: 'Home', onClick: () => setSelectedMenuItem(MainRoute.home) },
+    { id: 'edit', path: MainRoute.edit, label: 'Add post', onClick: () => setSelectedMenuItem(MainRoute.edit) },
+  ];
+
   return (
-    <>
-      <NxWelcome title="blog-cache" />
-      <div />
-
-      <div className="p-2 w-10 h-10 bg-red-600">
-        <span className="text-white">Hello</span>
-      </div>
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
-      </div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
-      </Routes>
-      {/* END: routes */}
-    </>
+    <section id="blog-cache-app">
+      <NavBar title='BLOG-CACHE'>
+        <Menu menuItems={menuItems} selectedMenuItem={selectedMenuItem} />
+      </NavBar>
+      <MainRouter />
+    </section>
   );
 }
 

@@ -1,21 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { axiosInstance } from "@monostate/client"
-
-export type AddPostAsyncResponse = {
-  id: string;
-}
+import { addPost } from "@monostate/client"
 
 export const addPostAsync = createAsyncThunk(
   'posts/addPostAsync',
-  async (options: {
-    title: string,
-    text: string,
-  }) => {
+  async (options: { title: string, text: string }) => {
     const { title, text } = options;
-
-    return (await axiosInstance.post<AddPostAsyncResponse>('posts', {
-      title,
-      text,
-    })).data;
+    return await addPost(title, text);
   }
 );

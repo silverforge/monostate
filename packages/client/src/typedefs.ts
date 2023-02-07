@@ -14,3 +14,11 @@ export type Post = {
   user: User;
   userId: string;
 }
+
+export type AddPostAsyncResponse = {
+  id: string;
+}
+
+export type DeletePostAsyncResponse = {
+  id: string;
+}
