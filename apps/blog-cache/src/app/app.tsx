@@ -11,8 +11,8 @@ export function App() {
   ];
 
   return (
-    <section id="blog-cache-app">
-      <NavBar title='BLOG-CACHE'>
+    <section id="blog-cache-bonus-app">
+      <NavBar title='BLOG-CACHE-BONUS'>
         <Menu menuItems={menuItems} selectedMenuItem={selectedMenuItem} />
       </NavBar>
       <MainRouter />
