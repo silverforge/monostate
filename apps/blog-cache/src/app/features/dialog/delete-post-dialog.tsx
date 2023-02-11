@@ -1,7 +1,7 @@
 import styles from './delete-post-dialog.module.css';
 import { Button, Card, Dialog } from "@monostate/components";
-import { useDeletePostMutation } from '../../data-access/useDeletePostMutation';
 import { useDialogStore } from '../../stores/useDialogStore';
+import { useDeletePostMutation } from '@monostate/client';
 
 export const DeletePostDialog = () => {
   const [postId, isDeleteDialogOpen, closeDeleteDialog] = useDialogStore(state => [state.selectedPostId, state.isDeleteDialogOpen, state.closeDeleteDialog]);

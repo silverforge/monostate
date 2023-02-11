@@ -2,7 +2,7 @@ import { Button, Card, InputText, InputTextArea } from "@monostate/components"
 
 import styles from './add-post.module.css';
 import { useState } from "react";
-import { useAddPostMutation } from "../../data-access/useAddPostMutation";
+import { useAddPostMutation } from "@monostate/client";
 
 export const AddPost = () => {
   const [title, setTitle] = useState<string>("");

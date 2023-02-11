@@ -1,8 +1,8 @@
 import styles from './delete-post-dialog.module.css';
 import { Button, Card, Dialog } from "@monostate/components";
-import { useDeletePostMutation } from '../../data-access/useDeletePostMutation';
 import { closeDeleteDialogAtom, selectedPostIdAtom } from '../../stores/dialog-atoms';
 import { useAtom, useAtomValue } from 'jotai';
+import { useDeletePostMutation } from '@monostate/client';
 
 export const DeletePostDialog = () => {
   const postId = useAtomValue(selectedPostIdAtom);

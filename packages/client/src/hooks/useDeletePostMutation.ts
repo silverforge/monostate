@@ -1,7 +1,7 @@
-import { deletePost } from "@monostate/client";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { GET_POST_LIST_ID } from "./usePostListQuery";
 import { GET_POST_ID } from "./usePostQuery";
+import { deletePost } from "../api/posts";
 
 export const DELETE_POST_ID = '@blog/deletePost' as const;
 

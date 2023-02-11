@@ -4,7 +4,7 @@ import { LoadingScreen } from "@monostate/components";
 import { PostListItem } from "./post-list-item";
 import { DeletePostDialog } from "../dialog/delete-post-dialog";
 import { EditPostDialog } from '../dialog/edit-post-dialog';
-import { usePostListQuery } from '../../data-access/usePostListQuery';
+import { usePostListQuery } from '@monostate/client';
 
 export const PostList = () => {
   const { data: posts, isLoading: isPostListLoading } = usePostListQuery();

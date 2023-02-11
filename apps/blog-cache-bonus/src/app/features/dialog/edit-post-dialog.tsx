@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import styles from './edit-post-dialog.module.css';
 import { Button, Card, Dialog, InputText, InputTextArea } from "@monostate/components";
-import { usePostQuery } from '../../data-access/usePostQuery';
-import { useUpdatePostMutation } from '../../data-access/useUpdatePostMutation';
 import { useAtom, useAtomValue } from 'jotai';
 import { closeEditDialogAtom, selectedPostIdAtom } from '../../stores/dialog-atoms';
+import { usePostQuery, useUpdatePostMutation } from '@monostate/client';
 
 export const EditPostDialog = () => {
   const postId = useAtomValue(selectedPostIdAtom);

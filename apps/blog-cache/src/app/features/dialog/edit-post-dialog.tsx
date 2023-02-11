@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './edit-post-dialog.module.css';
 import { Button, Card, Dialog, InputText, InputTextArea } from "@monostate/components";
 import { useDialogStore } from '../../stores/useDialogStore';
-import { usePostQuery } from '../../data-access/usePostQuery';
-import { useUpdatePostMutation } from '../../data-access/useUpdatePostMutation';
+import { usePostQuery, useUpdatePostMutation } from '@monostate/client';
 
 export const EditPostDialog = () => {
   const [postId, isEditDialogOpen, closeEditDialog] = useDialogStore(state => [state.selectedPostId, state.isEditDialogOpen, state.closeEditDialog]);
